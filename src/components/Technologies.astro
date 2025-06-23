@@ -1,0 +1,29 @@
+---
+import SubTitle from "./atoms/Subtitle.astro";
+import Section from "./atoms/Section.astro";
+import Badge from "./atoms/Badge.astro";
+import { getCollection } from "astro:content";
+
+const technologiesCollection = await getCollection("tech");
+---
+
+<Section>
+    <SubTitle title="Tecnologías" />
+    <div class="flex flex-wrap">
+        {
+            technologiesCollection.map(
+                (item: { data: { tech: string; icon: any, slug: string } }) => {
+                    const Logo = item.data.icon;
+                    return (
+                        <Badge class={`badge ${item.data.slug}`}>
+                            <Logo />
+                            <p class="text-lg font-semibold">
+                                {item.data.tech}
+                            </p>
+                        </Badge>
+                    );
+                },
+            )
+        }
+    </div>
+</Section>
