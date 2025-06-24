@@ -4,26 +4,32 @@ import Section from "./atoms/Section.astro";
 import Badge from "./atoms/Badge.astro";
 import { getCollection } from "astro:content";
 
-const technologiesCollection = await getCollection("tech");
+type TechProps = {
+    id: string;
+    data: { tech: string; icon: any; order: number };
+};
+const technCollection = await getCollection("tech");
+
+const technologiesCollection = technCollection.sort(
+    (a: TechProps, b: TechProps) => a.data.order - b.data.order,
+);
 ---
 
 <Section>
     <SubTitle title="Tecnologías" />
-    <div class="flex flex-wrap">
+    <div class="flex flex-wrap gap-2 sm:gap-5 mt-5">
         {
-            technologiesCollection.map(
-                (item: { data: { tech: string; icon: any, slug: string } }) => {
-                    const Logo = item.data.icon;
-                    return (
-                        <Badge class={`badge ${item.data.slug}`}>
-                            <Logo />
-                            <p class="text-lg font-semibold">
-                                {item.data.tech}
-                            </p>
-                        </Badge>
-                    );
-                },
-            )
+            technologiesCollection.map((item: TechProps) => {
+                const Logo = item.data.icon;
+                return (
+                    <Badge class={`badge ${item.id}`}>
+                        <Logo />
+                        <p class="text-sm font-semibold mx-2 text-black-stroke">
+                            {item.data.tech}
+                        </p>
+                    </Badge>
+                );
+            })
         }
     </div>
 </Section>

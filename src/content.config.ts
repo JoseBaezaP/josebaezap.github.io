@@ -4,9 +4,9 @@ import { glob } from "astro/loaders";
 const tech  = defineCollection({
   loader: glob({ pattern: "**/*.yml", base: "./src/data/tech" }),
   schema: ({image}) => z.object({
+    order: z.number().int().positive(),
     icon: image(),
     tech: z.string(),
-    slug: z.string(),
   }),
 });
 

@@ -12,7 +12,7 @@ body {
     width: 100%;
     height: 100%;
     color: black;
-    @apply bg-gray-50 dark:bg-gray-950
+    @apply bg-gray-100 dark:bg-gray-950
       dark:bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(120,119,198,0.3),rgba(255,255,255,0))];
 }
 
@@ -52,14 +52,57 @@ body {
 }
 
 .badge {
-    @apply bg-gray-200 dark:bg-gray-800;
+    --svg-default-fill: transparent;
+    --svg-default-color: white;
+    --svg-default-stroke: white;
+    @apply text-white bg-gray-800;
+    -webkit-text-stroke: 0.5px black;
+    svg {
+        fill: var(--svg-default-fill);
+        color: var(--svg-default-color);
+        stroke: var(--svg-default-stroke);
+        width: 24px;
+        height: 24px;
+    }
 }
 
 .next {
+    --svg-default-fill: white;
+    --svg-default-color: black;
+    --svg-default-stroke: black;
     @apply bg-black text-white dark:bg-white dark:text-black;
+}
+
+.laravel {
+    @apply bg-red-500;
+}
+
+.typescript {
+    @apply bg-blue-500;
+}
+
+.node {
+    @apply bg-green-500;
+    -webkit-text-stroke: 0.2px black;
+}
+
+.postgresql {
+    --svg-default-fill: #000000;
     svg {
-        @apply fill-white;
+        g {
+            @apply fill-white dark:fill-white;
+        }
     }
+}
+
+.react {
+    --svg-default-color: oklch(78.9% 0.154 211.53);
+    --svg-default-stroke: oklch(78.9% 0.154 211.53);
+    @apply bg-gray-800;
+}
+
+.aws {
+    @apply bg-gray-800;
 }
 
 @media (prefers-color-scheme: dark) {
