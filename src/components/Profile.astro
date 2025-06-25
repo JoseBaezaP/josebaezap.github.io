@@ -1,16 +1,29 @@
 ---
-import Title from './atoms/Title.astro'
+import Title from "./atoms/Title.astro";
+import HtmlIcon from "@/assets/html.svg";
+import CssIcon from "@/assets/css.svg";
+import JsIcon from "@/assets/javascript.svg";
+
+const svgWidth = 18;
+const svgHeight = 18;
 ---
+
 <section class="pt-16 md:pt-32 max-w-xl">
-    <Title title="José Baeza"/>
-    <div class="text-lg mt-5">
+    <div class="flex flex-nowrap items-end gap-0.5">
+        <Title title="José Baeza" />
+        <div class="flex flex-nowrap gap-0.5 mb-1.5 sm:mb-2">
+            <HtmlIcon width={svgWidth} height={svgHeight} />
+            <CssIcon width={svgWidth} height={svgHeight} />
+            <JsIcon width={svgWidth} height={svgHeight} />
+        </div>
+    </div>
+    <div class="text-md sm:text-xl mt-5">
         <p>
             +5 años de experiencia. <strong
                 class="text-yellow-500 dark:text-yellow-200"
                 >Full Stack Developer y Analista Empresarial,</strong
             >
-            egresado de la UADY en Mérida, Yucatán🇲🇽
+            egresado de la UADY en Mérida, Yucatán🇲🇽. Especializado en crear soluciones a tu medida.
         </p>
-        <p>Especializado en crear soluciones a tu medida.</p>
     </div>
 </section>

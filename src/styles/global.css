@@ -82,8 +82,11 @@ body {
 }
 
 .node {
-    @apply bg-green-500;
     -webkit-text-stroke: 0.2px black;
+    @apply bg-black text-white dark:bg-white dark:text-black;
+    svg  {
+        @apply stroke-white dark:stroke-black;
+    }
 }
 
 .postgresql {
@@ -103,6 +106,22 @@ body {
 
 .aws {
     @apply bg-gray-800;
+}
+
+.expirence-grid-template {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 3rem;
+}
+
+.expirence-description-grid-template {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 3rem;
+    @media (width < 640px) {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
 }
 
 @media (prefers-color-scheme: dark) {

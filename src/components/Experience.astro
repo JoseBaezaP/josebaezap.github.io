@@ -1,0 +1,33 @@
+---
+import SubTitle from "./atoms/Subtitle.astro";
+import Section from "./atoms/Section.astro";
+import { getCollection, render } from "astro:content";
+
+const companinesCollection = await getCollection("companies");
+---
+
+<Section>
+    <SubTitle title="Expirencia" />
+    <div class="flex flex-wrap gap-2 sm:gap-5 mt-5">
+        {
+            companinesCollection.map(async (item) => {
+                const { Content } = await render(item);
+                return (
+                    <div class="expirence-grid-template">
+                        <span class="h-2 w-2 rounded-full bg-yellow-500 dark:bg-yellow-200" />
+                        <div class="expirence-description-grid-template">
+                            <div>
+                                <p>{item.data.title}</p>
+                                <p>{item.data.company}</p>
+                                <p>
+                                    {item.data.start} - {item.data.end}
+                                </p>
+                            </div>
+                            <Content />
+                        </div>
+                    </div>
+                );
+            })
+        }
+    </div>
+</Section>
