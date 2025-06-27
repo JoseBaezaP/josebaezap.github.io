@@ -112,7 +112,7 @@ body {
     display: grid;
     grid-template-columns: max-content 1fr;
     gap: 2rem;
-    @apply mt-16
+    @apply mt-10;
 }
 
 .expirence-description-grid-template {

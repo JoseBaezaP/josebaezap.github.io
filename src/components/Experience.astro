@@ -3,11 +3,17 @@ import SubTitle from "./atoms/Subtitle.astro";
 import Section from "./atoms/Section.astro";
 import { getCollection, render } from "astro:content";
 
-const companinesCollection = await getCollection("companies");
+const companines = await getCollection("companies");
+
+const companinesCollection = companines.sort((a, b) => {
+    const aDate = new Date(a.data.start).getTime();
+    const bDate = new Date(b.data.start).getTime();
+    return bDate - aDate;
+});
 ---
 
 <Section>
-    <SubTitle title="Expirencia" />
+    <SubTitle title="Experiencia" />
     {
         companinesCollection.map(async (item) => {
             const { Content } = await render(item);

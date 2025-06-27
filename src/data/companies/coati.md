@@ -1,8 +1,8 @@
 ---
-title:  Analista Empresarial
-company: Heb
-start: '2024'
-end: Actualidad
+title:  FullStack Developer
+company: Coati
+start: '2019'
+end: '2022'
 ---
 
-Responsable de analizar y documentar los procesos empresariales, identificando oportunidades de mejora proponiendo soluciones tecnológicas para optimizar la eficiencia operativa, solventando las necesidades de nuestros stakeholders. Usando herramientas de modelado como  Microsoft Visio, herramientas de gestión de proyectos como Azure, étc.
+Desarrollé aplicaciones para sectores como viajes y hospitalidad usando **Laravel, Livewire, ReactJS, Next.js, Angular y Node.js.** Construí interfaces con **Bootstrap**, gestioné lógica de negocio y pagos, y desplegué soluciones con **PostgreSQL, Heroku, AWS y cPanel.**

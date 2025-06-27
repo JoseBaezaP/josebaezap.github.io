@@ -1,8 +1,8 @@
 ---
-title:  Analista Empresarial
-company: Heb
-start: '2024'
-end: Actualidad
+title:  Frontend Developer
+company: Divelement
+start: '2022'
+end: '2024'
 ---
 
-Responsable de analizar y documentar los procesos empresariales, identificando oportunidades de mejora proponiendo soluciones tecnológicas para optimizar la eficiencia operativa, solventando las necesidades de nuestros stakeholders. Usando herramientas de modelado como  Microsoft Visio, herramientas de gestión de proyectos como Azure, étc.
+Lideré el desarrollo de plataformas responsivas usando **ReactJS, NextJS y TypeScript**, integrando APIs y gestionando estado de forma eficiente. Desplegué soluciones escalables con **AWS (S3, EC2, RDS)** en sectores como salud, bienes raíces y reserva de habitaciones

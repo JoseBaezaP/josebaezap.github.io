@@ -5,4 +5,4 @@ start: '2024'
 end: Actualidad
 ---
 
-Responsable de analizar y documentar los procesos empresariales, identificando oportunidades de mejora proponiendo soluciones tecnológicas para optimizar la eficiencia operativa, solventando las necesidades de nuestros stakeholders. Usando herramientas de modelado como  Microsoft Visio, herramientas de gestión de proyectos como Azure, étc.
+Encargado de analizar y documentar procesos empresariales, proponiendo soluciones tecnológicas para mejorar la eficiencia y satisfacer las necesidades de los stakeholders. Uso herramientas como **Microsoft Visio** para modelado de procesos y **Azure DevOps** para gestión de proyectos.

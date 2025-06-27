@@ -1,8 +1,8 @@
 ---
-title:  Analista Empresarial
-company: Heb
-start: '2024'
-end: Actualidad
+title:  FullStack Developer
+company: Viva Envios
+start: '2022'
+end: '2024'
 ---
 
-Responsable de analizar y documentar los procesos empresariales, identificando oportunidades de mejora proponiendo soluciones tecnológicas para optimizar la eficiencia operativa, solventando las necesidades de nuestros stakeholders. Usando herramientas de modelado como  Microsoft Visio, herramientas de gestión de proyectos como Azure, étc.
+Desarrollé un sistema integral para Viva Envíos con **Laravel, Livewire y Tailwind,** integrando **Zoho Invoice API** para facturación y pagos. Incluí funciones de rastreo, cálculo de envíos y gestión de permisos. Desplegado en **AWS** con **SES, S3, MySQL** e integración de **Twilio** para SMS.

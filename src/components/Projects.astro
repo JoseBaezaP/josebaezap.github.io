@@ -1,0 +1,41 @@
+---
+import SubTitle from "./atoms/Subtitle.astro";
+import Section from "./atoms/Section.astro";
+import { getCollection, render } from "astro:content";
+
+const companines = await getCollection("companies");
+
+const companinesCollection = companines.sort((a, b) => {
+    const aDate = new Date(a.data.start).getTime();
+    const bDate = new Date(b.data.start).getTime();
+    return bDate - aDate;
+});
+---
+
+<Section>
+    <SubTitle title="Proyectos" />
+    {
+        companinesCollection.map(async (item) => {
+            const { Content } = await render(item);
+            return (
+                <div class="expirence-grid-template">
+                    <span class="h-2 w-2 rounded-full bg-yellow-300 mx-auto mt-2 border border-black" />
+                    <div class="expirence-description-grid-template">
+                        <div>
+                            <p class="text-yellow-500 dark:text-yellow-300 text-xl sm:text-2xl">
+                                <strong>{item.data.title}</strong>
+                            </p>
+                            <p class="text-xl my-1">
+                                <strong>{item.data.company}</strong>
+                            </p>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">
+                                {item.data.start} - {item.data.end}
+                            </p>
+                        </div>
+                        <Content />
+                    </div>
+                </div>
+            );
+        })
+    }
+</Section>
