@@ -6,6 +6,25 @@ import JsIcon from "@/assets/javascript.svg";
 
 const svgWidth = 18;
 const svgHeight = 18;
+
+const i8nText = [
+    {
+        p1: "+5 años de experiencia",
+        p2: "Full Stack Developer y Analista Empresarial,",
+        p3: "egresado de la UADY en Mérida, Yucatán🇲🇽. Especializado en crear soluciones a tu medida.",
+    },
+    {
+        p1: "+5 years of experience",
+        p2: "Full Stack Developer and Business Analyst,",
+        p3: "Graduate of UADY in Mérida, Yucatán🇲🇽. Specialized in creating tailor-made solutions.",
+        end: "2020",
+    },
+];
+
+const lang = Astro.currentLocale || "en";
+const allTexts = lang === "es" ? i8nText[0] : i8nText[1];
+
+
 ---
 
 <section class="pt-16 md:pt-32 max-w-xl">
@@ -19,11 +38,11 @@ const svgHeight = 18;
     </div>
     <div class="text-md sm:text-xl mt-5">
         <p>
-            +5 años de experiencia. <strong
+            {allTexts.p1} <strong
                 class="text-yellow-500 dark:text-yellow-300"
-                >Full Stack Developer y Analista Empresarial,</strong
+                >{allTexts.p2}</strong
             >
-            egresado de la UADY en Mérida, Yucatán🇲🇽. Especializado en crear soluciones a tu medida.
+            {allTexts.p3}
         </p>
     </div>
 </section>

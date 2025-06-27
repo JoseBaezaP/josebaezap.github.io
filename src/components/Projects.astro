@@ -1,37 +1,31 @@
 ---
-import SubTitle from "./atoms/Subtitle.astro";
+import { Image } from "astro:assets";
 import Section from "./atoms/Section.astro";
+import SubTitle from "./atoms/Subtitle.astro";
 import { getCollection, render } from "astro:content";
+const projectsCollection = await getCollection("projects");
 
-const companines = await getCollection("companies");
-
-const companinesCollection = companines.sort((a, b) => {
-    const aDate = new Date(a.data.start).getTime();
-    const bDate = new Date(b.data.start).getTime();
-    return bDate - aDate;
+const projects = projectsCollection.filter((item) => {
+    return item.data.lang === Astro.currentLocale ;
 });
+
+
 ---
 
 <Section>
     <SubTitle title="Proyectos" />
     {
-        companinesCollection.map(async (item) => {
+        projects.map(async (item) => {
             const { Content } = await render(item);
             return (
-                <div class="expirence-grid-template">
-                    <span class="h-2 w-2 rounded-full bg-yellow-300 mx-auto mt-2 border border-black" />
-                    <div class="expirence-description-grid-template">
-                        <div>
-                            <p class="text-yellow-500 dark:text-yellow-300 text-xl sm:text-2xl">
-                                <strong>{item.data.title}</strong>
-                            </p>
-                            <p class="text-xl my-1">
-                                <strong>{item.data.company}</strong>
-                            </p>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">
-                                {item.data.start} - {item.data.end}
-                            </p>
-                        </div>
+                <div class="flex flex-col md:flex-row gap-2 md:gap-10">
+                    <Image
+                        src={item.data.cover}
+                        alt={item.data.title}
+                        class="rounded-lg md:w-1/2 max-md:mx-auto"
+                    />
+                    <div>
+                        <h1>{item.data.title}</h1>
                         <Content />
                     </div>
                 </div>
