@@ -7,6 +7,8 @@ const projectsCollection = await getCollection("projects");
 const projects = projectsCollection.filter((item) => {
     return item.data.lang === Astro.currentLocale;
 });
+
+const title = Astro.currentLocale === "en" ? "Projects" : "Proyectos";
 ---
 
 <Section>
