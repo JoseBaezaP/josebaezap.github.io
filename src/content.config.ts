@@ -17,6 +17,7 @@ const companies = defineCollection({
     z.object({
       title: z.string(),
       company: z.string(),
+      lang: z.string(),
       start: z.string(),
       end: z.string(),
     }),

@@ -1,4 +1,5 @@
 ---
+lang: 'es'
 title:  FullStack Developer
 company: Viva Envios
 start: '2022'

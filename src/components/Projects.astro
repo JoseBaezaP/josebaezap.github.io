@@ -5,10 +5,8 @@ import { getCollection, render } from "astro:content";
 const projectsCollection = await getCollection("projects");
 
 const projects = projectsCollection.filter((item) => {
-    return item.data.lang === Astro.currentLocale ;
+    return item.data.lang === Astro.currentLocale;
 });
-
-
 ---
 
 <Section>
@@ -17,15 +15,21 @@ const projects = projectsCollection.filter((item) => {
         projects.map(async (item) => {
             const { Content } = await render(item);
             return (
-                <div class="flex flex-col md:flex-row gap-2 md:gap-10">
-                    <img
-                        src={item.data.cover}
-                        alt={item.data.title}
-                        class="rounded-lg md:w-1/2 max-md:mx-auto"
-                    />
-                    <div>
-                        <h1>{item.data.title}</h1>
-                        <Content />
+                <div class="flex flex-col sm:flex-row gap-2 sm:gap-10 zoom-container mt-5">
+                    <div class="sm:w-1/2 h-full rounded-lg overflow-hidden">
+                        <img
+                            src={item.data.cover.src}
+                            alt={item.data.title}
+                            class="rounded-lg mx-auto object-cover h-full w-full zoom-content"
+                        />
+                    </div>
+                    <div class="sm:w-1/2 flex flex-col">
+                        <p class="text-yellow-500 dark:text-yellow-300 text-xl sm:text-2xl font-bold max-sm:my-5 sm:mb-5">
+                            {item.data.title}
+                        </p>
+                        <div class="text-gray-700 dark:text-gray-400 text-justify">
+                            <Content />
+                        </div>
                     </div>
                 </div>
             );

@@ -13,10 +13,12 @@ const technCollection = await getCollection("tech");
 const technologiesCollection = technCollection.sort(
     (a: TechProps, b: TechProps) => a.data.order - b.data.order,
 );
+
+const title = Astro. currentLocale === "en" ? "Technologies" : "Tecnologías";
 ---
 
 <Section>
-    <SubTitle title="Tecnologías" />
+    <SubTitle title={title} />
     <div class="flex flex-wrap gap-2 sm:gap-5 mt-5">
         {
             technologiesCollection.map((item: TechProps) => {

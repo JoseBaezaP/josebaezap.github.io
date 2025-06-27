@@ -1,4 +1,5 @@
 ---
+lang: 'es'
 title:  Analista Empresarial
 company: Heb
 start: '2024'

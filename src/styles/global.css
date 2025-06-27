@@ -116,8 +116,9 @@ body {
 }
 
 .expirence-description-grid-template {
+    text-align: justify;
     display: grid;
-    grid-template-columns: max-content 1fr;
+    grid-template-columns: 1fr 60%;
     gap: 3rem;
     @media (width < 640px) {
         grid-template-columns: 1fr;
@@ -129,4 +130,18 @@ body {
     body {
         color: white;
     }
+}
+
+.zoom-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.zoom-content {
+  transition: transform 0.3s ease;
+  transform-origin: center center;
+}
+
+.zoom-container:hover .zoom-content {
+  transform: scale(1.15);
 }
