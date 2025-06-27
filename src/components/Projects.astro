@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 import Section from "./atoms/Section.astro";
 import SubTitle from "./atoms/Subtitle.astro";
 import { getCollection, render } from "astro:content";
@@ -19,7 +18,7 @@ const projects = projectsCollection.filter((item) => {
             const { Content } = await render(item);
             return (
                 <div class="flex flex-col md:flex-row gap-2 md:gap-10">
-                    <Image
+                    <img
                         src={item.data.cover}
                         alt={item.data.title}
                         class="rounded-lg md:w-1/2 max-md:mx-auto"
