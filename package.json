@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "portafolio",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -14,6 +14,7 @@
     "@fontsource-variable/onest": "^5.2.9",
     "@tailwindcss/vite": "^4.1.10",
     "astro": "^5.9.2",
+    "sharp": "^0.34.2",
     "tailwindcss": "^4.1.10"
   },
   "homepage": "https://josebaezap.github.io/",

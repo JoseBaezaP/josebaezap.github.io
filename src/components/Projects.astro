@@ -1,9 +1,9 @@
 ---
+import { getCollection, render } from "astro:content";
 import Section from "./atoms/Section.astro";
 import SubTitle from "./atoms/Subtitle.astro";
-import { getCollection, render } from "astro:content";
 const projectsCollection = await getCollection("projects");
-
+import { Image } from "astro:assets";
 const projects = projectsCollection.filter((item) => {
     return item.data.lang === Astro.currentLocale;
 });
@@ -19,17 +19,18 @@ const title = Astro.currentLocale === "en" ? "Projects" : "Proyectos";
             return (
                 <div class="flex flex-col sm:flex-row gap-2 sm:gap-10 zoom-container mt-5">
                     <div class="sm:w-1/2 h-full rounded-lg overflow-hidden">
-                        <img
-                            src={item.data.cover.src}
+                        <Image
+                            src={item.data.cover}
                             alt={item.data.title}
                             class="rounded-lg mx-auto object-cover h-full w-full zoom-content"
+                            loading="lazy"
                         />
                     </div>
                     <div class="sm:w-1/2 flex flex-col">
                         <p class="text-yellow-500 dark:text-yellow-300 text-xl sm:text-2xl font-bold max-sm:my-5 sm:mb-5">
                             {item.data.title}
                         </p>
-                        <div class="text-gray-700 dark:text-gray-400 text-justify">
+                        <div class="text-gray-700 dark:text-gray-400">
                             <Content />
                         </div>
                     </div>

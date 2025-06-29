@@ -34,6 +34,15 @@ const projects = defineCollection({
     }),
 });
 
+const about = defineCollection({
+  loader: glob({ pattern: "**/*.md", base: "./src/data/about" }),
+  schema: ({ image }) =>
+    z.object({
+      cover: image(),
+      lang: z.string(),
+    }),
+});
+
 // Expose your defined collection to Astro
 // with the `collections` export
-export const collections = { tech, companies, projects };
+export const collections = { tech, companies, projects, about };

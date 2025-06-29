@@ -84,7 +84,7 @@ body {
 .node {
     -webkit-text-stroke: 0.2px black;
     @apply bg-black text-white dark:bg-white dark:text-black;
-    svg  {
+    svg {
         @apply stroke-white dark:stroke-black;
     }
 }
@@ -116,7 +116,6 @@ body {
 }
 
 .expirence-description-grid-template {
-    text-align: justify;
     display: grid;
     grid-template-columns: 1fr 60%;
     gap: 3rem;
@@ -133,15 +132,25 @@ body {
 }
 
 .zoom-container {
-  overflow: hidden;
-  position: relative;
+    overflow: hidden;
+    position: relative;
 }
 
 .zoom-content {
-  transition: transform 0.3s ease;
-  transform-origin: center center;
+    transition: transform 0.3s ease;
+    transform-origin: center center;
 }
 
 .zoom-container:hover .zoom-content {
-  transform: scale(1.15);
+    transform: scale(1.15);
+}
+
+.exp-anchor {
+    anchor-name: --exp-anchor;
+}
+
+.line {
+    left: 3px;
+    border-width: 0.3px;
+    @apply absolute top-0 bg-yellow-300 dark:bg-gray-600 border-black w-0.5 block;
 }

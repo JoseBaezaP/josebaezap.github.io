@@ -20,28 +20,45 @@ const title = Astro.currentLocale === "en" ? "Experience" : "Experiencia";
 
 <Section>
     <SubTitle title={title} />
-    {
-        companinesCollection.map(async (item) => {
-            const { Content } = await render(item);
-            return (
-                <div class="expirence-grid-template">
-                    <span class="h-2 w-2 rounded-full bg-yellow-300 mx-auto mt-2 border border-black" />
-                    <div class="expirence-description-grid-template">
-                        <div>
-                            <p class="text-yellow-500 dark:text-yellow-300 text-xl sm:text-2xl font-bold">
-                                {item.data.title}
-                            </p>
-                            <p class="text-xl my-1 font-bold">
-                                {item.data.company}
-                            </p>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">
-                                {item.data.start} - {item.data.end}
-                            </p>
+    <div id="border-projects" class="relative">
+        {
+            companinesCollection.map(async (item, index) => {
+                const { Content } = await render(item);
+                return (
+                    <div class="expirence-grid-template">
+                        <span class="h-2 w-2 rounded-full bg-yellow-300 mx-auto mt-2 border border-black z-10" />
+                        <div class="expirence-description-grid-template">
+                            <div>
+                                <p class="text-yellow-500 dark:text-yellow-300 text-xl sm:text-2xl font-bold">
+                                    {item.data.title}
+                                </p>
+                                <p class="text-xl my-1 font-bold">
+                                    {item.data.company}
+                                </p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400">
+                                    {item.data.start} - {item.data.end}
+                                </p>
+                            </div>
+                            <Content />
                         </div>
-                        <Content />
                     </div>
-                </div>
-            );
-        })
-    }
+                );
+            })
+        }
+
+        <span
+            style=""
+            class="line"
+            id="line"></span>
+    </div>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const projectsContainer =
+                document.getElementById("border-projects");
+            const line = document.getElementById("line");
+            if (projectsContainer && line) {
+                line.style.height = projectsContainer.offsetHeight + "px";
+            }
+        });
+    </script>
 </Section>

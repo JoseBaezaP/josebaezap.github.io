@@ -1,3 +1,6 @@
-<section class="pt-12 sm:pt-18">
-    <slot/>
+---
+const { class: className } = Astro.props;
+---
+<section class={`pt-12 sm:pt-18 ${className}`}>
+    <slot />
 </section>
