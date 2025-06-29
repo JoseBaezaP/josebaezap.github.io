@@ -1,0 +1,80 @@
+---
+import GithubSlugger from "github-slugger";
+const slugger = new GithubSlugger();
+
+const texts = {
+    en: {
+        tech: "Technologies",
+        experience: "Experience",
+        projects: "Projects",
+        aboutMe: "About me",
+    },
+    es: {
+        tech: "Tecnologías",
+        experience: "Experiencia",
+        projects: "Proyectos",
+        aboutMe: "Sobre mi",
+    },
+};
+
+const items = Astro.currentLocale === "en" ? texts.en : texts.es;
+
+const slugs = {
+    tech: slugger.slug(items.tech),
+    experience: slugger.slug(items.experience),
+    projects: slugger.slug(items.projects),
+    aboutMe: slugger.slug(items.aboutMe),
+};
+---
+
+<nav class="nav">
+    <span class="nav-items">
+        <a href={`#${slugs.experience}`}  aria-label={slugs.experience}>{items.experience}</a>
+        <a href={`#${slugs.projects}`}  aria-label={slugs.projects}>{items.projects}</a>
+        <a href={`#${slugs.aboutMe}`}  aria-label={slugs.aboutMe}>{items.aboutMe}</a>
+    </span>
+</nav>
+
+<script>
+  document.addEventListener("astro:page-load", () => {
+    const sections = document.querySelectorAll("h3")
+    const navItems = document.querySelectorAll("nav span a")
+
+
+    const callback = (entries: any[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navItems.forEach((item) => {
+            console.log(item.getAttribute("aria-label"), entry.target.id)
+            if (item.getAttribute("aria-label") == entry.target.id) {
+              item.classList.add("text-blue-500")
+            } else {
+              item.classList.remove("text-blue-500")
+            }
+          })
+        }
+      })
+    }
+
+    const observer = new IntersectionObserver(callback, {
+      root: null,
+      rootMargin: "0px",
+      threshold: 0,
+    })
+
+    sections.forEach((section) => {
+      observer.observe(section)
+    })
+
+    // Cleanup function
+    document.onvisibilitychange = () => {
+      if (document.visibilityState === "hidden") {
+        observer.disconnect()
+      } else {
+        sections.forEach((section) => {
+          observer.observe(section)
+        })
+      }
+    }
+  })
+</script>

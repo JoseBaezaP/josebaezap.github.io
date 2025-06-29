@@ -10,7 +10,7 @@ const about = allAbout.filter((item) => {
     return item.data.lang === Astro.currentLocale;
 })[0];
 
-const title = Astro.currentLocale === "en" ? "Aboute me" : "Sobre mi";
+const title = Astro.currentLocale === "en" ? "About me" : "Sobre mi";
 const { Content } = await render(about);
 ---
 
