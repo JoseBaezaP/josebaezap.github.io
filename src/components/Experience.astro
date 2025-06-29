@@ -46,19 +46,24 @@ const title = Astro.currentLocale === "en" ? "Experience" : "Experiencia";
             })
         }
 
-        <span
-            style=""
-            class="line"
-            id="line"></span>
+        <span class="line" id="line"></span>
     </div>
     <script>
-        window.addEventListener("DOMContentLoaded", () => {
-            const projectsContainer =
-                document.getElementById("border-projects");
-            const line = document.getElementById("line");
-            if (projectsContainer && line) {
-                line.style.height = projectsContainer.offsetHeight + "px";
-            }
-        });
+        import { animate, scroll } from "motion";
+
+        const projectsContainer = document.getElementById("border-projects");
+
+        const animation = animate(
+            "#line",
+            {
+                height: ["0%", projectsContainer?.offsetHeight + "px"],
+            },
+            { ease: "linear", duration: 0.2 },
+        );
+        projectsContainer &&
+            scroll(animation, {
+                target: projectsContainer,
+                offset: ["end end", "center start"],
+            });
     </script>
 </Section>
