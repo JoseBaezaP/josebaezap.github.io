@@ -11,9 +11,13 @@ body {
     margin: 0;
     width: 100%;
     height: 100%;
-    color: black;
-    @apply bg-gray-100 dark:bg-gray-950
-      dark:bg-[radial-gradient(ellipse_100%_100%_at_50%_-1%,rgba(120,119,198,0.3),rgba(255,255,255,0))] bg-no-repeat bg-cover;
+    @apply bg-gray-100 dark:bg-gray-950 text-black dark:text-white transition-all duration-400;
+    dark: bg-[radial-gradient(
+            ellipse_100%_100%_at_50%_-1%,
+            rgba(120, 119, 198, 0.3),
+            rgba(255, 255, 255, 0)
+        )]
+        bg-no-repeat bg-cover;
 }
 
 .content-grid {
@@ -125,12 +129,6 @@ body {
     }
 }
 
-@media (prefers-color-scheme: dark) {
-    body {
-        color: white;
-    }
-}
-
 .zoom-container {
     overflow: hidden;
     position: relative;
@@ -157,7 +155,7 @@ body {
 
 .nav {
     position: fixed;
-    background-color: rgba(0, 0, 0,.7);
+    background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(5px);
     z-index: 50;
     @apply left-1/2 -translate-1/2 py-2 px-5 rounded-2xl top-8;
@@ -171,8 +169,25 @@ body {
     @apply text-white;
 }
 
-@media (prefers-color-scheme: dark) {
-    .nav {
-        background-color: rgba(255, 255, 255,.3);
+.dark .nav {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+#themeToggle {
+    svg {
+        width: clamp(0.875rem, 1.5vw, 1rem);
     }
+}
+.sun {
+    fill: white;
+}
+.moon {
+    fill: transparent;
+}
+
+.dark .sun {
+    fill: transparent;
+}
+.dark .moon {
+    fill: white;
 }

@@ -1,0 +1,15 @@
+---
+import LangIcon from "@/assets/lang.svg";
+---
+
+<div class="flex">
+    <LangIcon />
+    {Astro.currentLocale == "en" && <a href="/en">En</a>}
+    {Astro.currentLocale == "es" && <a href="/es">Es</a>}
+</div>
+
+<style>
+    svg {
+        width: clamp(0.875rem, 1.5vw, 1rem);
+    }
+</style>

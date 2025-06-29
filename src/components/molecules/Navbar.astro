@@ -1,5 +1,7 @@
 ---
 import GithubSlugger from "github-slugger";
+import ToggleTheme from "./ToggleTheme.astro";
+import LangOpt from "./LangOpt.astro";
 const slugger = new GithubSlugger();
 
 const texts = {
@@ -29,53 +31,56 @@ const slugs = {
 
 <nav class="nav">
     <span class="nav-items">
-        <a href={`#${slugs.experience}`}  aria-label={slugs.experience}>{items.experience}</a>
-        <a href={`#${slugs.projects}`}  aria-label={slugs.projects}>{items.projects}</a>
-        <a href={`#${slugs.aboutMe}`}  aria-label={slugs.aboutMe}>{items.aboutMe}</a>
+        <a href={`#${slugs.experience}`} aria-label={slugs.experience}>{items.experience}</a>
+        <a href={`#${slugs.projects}`} aria-label={slugs.projects}>{items.projects}</a>
+        <a href={`#${slugs.aboutMe}`} aria-label={slugs.aboutMe}>{items.aboutMe}</a>
+        <ToggleTheme />
+        <LangOpt />
     </span>
 </nav>
 
 <script>
-  document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("h3")
-    const navItems = document.querySelectorAll("nav span a")
+    document.addEventListener("astro:page-load", () => {
+        const sections = document.querySelectorAll("h3");
+        const navItems = document.querySelectorAll("nav span a");
 
+        const callback = (entries: any[]) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    navItems.forEach((item) => {
+                        if (
+                            item.getAttribute("aria-label") == entry.target.id
+                        ) {
+                            item.classList.add("text-yellow-500");
+                            item.classList.add("dark:text-yellow-300");
+                        } else {
+                            item.classList.remove("text-yellow-500");
+                            item.classList.remove("dark:text-yellow-300");
+                        }
+                    });
+                }
+            });
+        };
 
-    const callback = (entries: any[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-yellow-500")
-              item.classList.add("dark:text-yellow-300")
-            } else {
-              item.classList.remove("text-yellow-500")
-              item.classList.remove("dark:text-yellow-300")
-            }
-          })
-        }
-      })
-    }
+        const observer = new IntersectionObserver(callback, {
+            root: null,
+            rootMargin: "0px",
+            threshold: 0,
+        });
 
-    const observer = new IntersectionObserver(callback, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0,
-    })
-
-    sections.forEach((section) => {
-      observer.observe(section)
-    })
-
-    // Cleanup function
-    document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
-        observer.disconnect()
-      } else {
         sections.forEach((section) => {
-          observer.observe(section)
-        })
-      }
-    }
-  })
+            observer.observe(section);
+        });
+
+        // Cleanup function
+        document.onvisibilitychange = () => {
+            if (document.visibilityState === "hidden") {
+                observer.disconnect();
+            } else {
+                sections.forEach((section) => {
+                    observer.observe(section);
+                });
+            }
+        };
+    });
 </script>
