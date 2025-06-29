@@ -45,11 +45,12 @@ const slugs = {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           navItems.forEach((item) => {
-            console.log(item.getAttribute("aria-label"), entry.target.id)
             if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-blue-500")
+              item.classList.add("text-yellow-500")
+              item.classList.add("dark:text-yellow-300")
             } else {
-              item.classList.remove("text-blue-500")
+              item.classList.remove("text-yellow-500")
+              item.classList.remove("dark:text-yellow-300")
             }
           })
         }

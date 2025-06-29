@@ -157,17 +157,22 @@ body {
 
 .nav {
     position: fixed;
-    background-color: rgba(255, 255, 255, 0.8);
-    backdrop-filter: blur(10px);
+    background-color: rgba(0, 0, 0,.7);
+    backdrop-filter: blur(5px);
     z-index: 50;
-    @apply left-1/2 -translate-1/2 py-2 px-5 rounded-2xl top-10;
+    @apply left-1/2 -translate-1/2 py-2 px-5 rounded-2xl top-8;
 }
 
 .nav-items {
     display: flex;
     gap: 10px;
     font-size: clamp(0.875rem, 1.5vw, 1rem);
-    color: white;
-    mix-blend-mode: difference;
     width: max-content;
+    @apply text-white;
+}
+
+@media (prefers-color-scheme: dark) {
+    .nav {
+        background-color: rgba(255, 255, 255,.3);
+    }
 }
