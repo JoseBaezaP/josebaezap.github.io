@@ -157,7 +157,6 @@ body {
 
 .nav {
     position: fixed;
-    width: fit-content;
     background-color: rgba(255, 255, 255, 0.8);
     backdrop-filter: blur(10px);
     z-index: 50;
@@ -170,4 +169,5 @@ body {
     font-size: clamp(0.875rem, 1.5vw, 1rem);
     color: white;
     mix-blend-mode: difference;
+    width: max-content;
 }
