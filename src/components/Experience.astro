@@ -53,17 +53,16 @@ const title = Astro.currentLocale === "en" ? "Experience" : "Experiencia";
 
         const projectsContainer = document.getElementById("border-projects");
 
-        const animation = animate(
-            "#line",
-            {
-                height: ["0%", projectsContainer?.offsetHeight + "px"],
-            },
-            { ease: "linear", duration: 0.2 },
-        );
+        const animation = animate("#line", {
+            opacity: [0, 1],
+            height: ["0%", projectsContainer?.offsetHeight + "px"],
+        });
         projectsContainer &&
             scroll(animation, {
                 target: projectsContainer,
                 offset: ["end end", "center start"],
+                duration: 0.5,
+                easing: "linear",
             });
     </script>
 </Section>
