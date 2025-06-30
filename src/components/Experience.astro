@@ -1,6 +1,7 @@
 ---
 import SubTitle from "./atoms/Subtitle.astro";
 import Section from "./atoms/Section.astro";
+import ScrollLine from "./atoms/ScrollLine.jsx";
 import { getCollection, render } from "astro:content";
 
 const allCompanines = await getCollection("companies");
@@ -48,40 +49,5 @@ const title = Astro.currentLocale === "en" ? "Experience" : "Experiencia";
 
         <span class="line" id="line"></span>
     </div>
-    <script>
-        import { animate, scroll } from "motion";
-
-        const projectsContainer = document.getElementById("border-projects");
-
-        const animation = animate(
-            "#line",
-            {
-                height: ["100%", "50%", "0%"],
-            },
-            { ease: "linear" },
-        );
-        projectsContainer &&
-            scroll(animation, {
-                target: projectsContainer,
-                offset: ["center start", "center center", "center end"],
-            });
-
-        window.addEventListener("astro:after-swap", () => {
-            const projectsContainer =
-                document.getElementById("border-projects");
-            const animation = animate(
-                "#line",
-                {
-                    height: ["100%", "50%", "0%"],
-                },
-                { ease: "linear" },
-            );
-            if (projectsContainer) {
-                scroll(animation, {
-                    target: projectsContainer,
-                    offset: ["center start", "center center", "center end"],
-                });
-            }
-        });
-    </script>
+    <ScrollLine client:only="preact" />
 </Section>
