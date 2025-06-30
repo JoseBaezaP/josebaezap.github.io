@@ -47,7 +47,6 @@ import { ViewTransitions } from "astro:transitions"
 <script is:inline>
     const theme = (() => {
       const localStorageTheme = localStorage?.getItem("theme") ?? "";
-      console.log("Local storage theme:", localStorageTheme);
       if (["dark", "light"].includes(localStorageTheme)) {
           return localStorageTheme;
       }
@@ -76,13 +75,6 @@ import { ViewTransitions } from "astro:transitions"
 
     document.getElementById("themeToggle")?.addEventListener("click", () => handleToggleClick());
 
-    document.addEventListener('astro:before-swap', () => {
-      if (localStorage?.getItem("theme") === "light") {
-          document.documentElement.classList.remove("dark");
-      } else {
-          document.documentElement.classList.add("dark");
-      }
-    })
     document.addEventListener('astro:after-swap', () => {
       if (localStorage?.getItem("theme") === "light") {
           document.documentElement.classList.remove("dark");
