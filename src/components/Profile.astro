@@ -3,6 +3,10 @@ import Title from "./atoms/Title.astro";
 import HtmlIcon from "@/assets/html.svg";
 import CssIcon from "@/assets/css.svg";
 import JsIcon from "@/assets/javascript.svg";
+import MailIcon from "@/assets/mail.svg";
+import LinkedinIcon from "@/assets/linkedin.svg";
+import profileImg from "@/assets/profile.png";
+import { Image } from "astro:assets";
 
 const svgWidth = 18;
 const svgHeight = 18;
@@ -23,11 +27,10 @@ const i8nText = [
 
 const lang = Astro.currentLocale || "en";
 const allTexts = lang === "es" ? i8nText[0] : i8nText[1];
-
-
 ---
 
 <section class="pt-16 md:pt-32 max-w-xl">
+    <img src={profileImg.src} alt="Profile Image" class="mb-4" width={100} />
     <div class="flex flex-nowrap items-end gap-0.5">
         <Title title="José Baeza" />
         <div class="flex flex-nowrap gap-0.5 mb-1.5 sm:mb-2">
@@ -38,11 +41,33 @@ const allTexts = lang === "es" ? i8nText[0] : i8nText[1];
     </div>
     <div class="text-md sm:text-xl mt-5">
         <p>
-            {allTexts.p1} <span
-                class="text-yellow-500 dark:text-yellow-300 font-bold"
+            {allTexts.p1}
+            <span class="text-yellow-500 dark:text-yellow-300 font-bold"
                 >{allTexts.p2}</span
             >
             {allTexts.p3}
         </p>
+    </div>
+    <div class="flex flex-wrap mt-5 gap-2">
+        <a
+            href="mailto:josedelarosabass@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            role="link"
+            class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white focus-visible:ring-yellow-500/80 text-md hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black group max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+        >
+            <MailIcon />
+            josedelarosabass@gmail.com
+        </a>
+        <a
+            href="https://www.linkedin.com/in/jose-baeza-perez/"
+            target="_blank"
+            rel="noopener noreferrer"
+            role="link"
+            class="inline-flex items-center justify-center gap-2 px-4 py-1 text-gray-800 transition bg-gray-100 border border-gray-300 rounded-full dark:bg-gray-800 dark:border-gray-600 dark:text-white focus-visible:ring-yellow-500/80 text-md hover:bg-gray-900 hover:border-gray-700 hover:text-white dark:hover:bg-gray-100 dark:hover:border-gray-300 dark:hover:text-black group max-w-fit focus:outline-none focus-visible:outline-none focus-visible:ring focus-visible:ring-white focus-visible:ring-offset-2 active:bg-black"
+        >
+            <LinkedinIcon />
+            LinkedIn
+        </a>
     </div>
 </section>

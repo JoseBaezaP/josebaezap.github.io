@@ -12,7 +12,28 @@ import { ViewTransitions } from "astro:transitions"
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="generator" content={Astro.generator} />
-        <title>Portafolio de José Baeza</title>
+        <title>Jose Baeza | Desarrollador Fullstack y Analista Técnico</title>
+
+        <!-- Meta Description -->
+        <meta name="description" content="Soy Jose Baeza, desarrollador fullstack y analista técnico especializado en React, Laravel, Node.js, AWS y soluciones empresariales. Creo plataformas escalables, optimizadas y adaptadas a tus necesidades.">
+
+        <!-- Open Graph (para compartir en redes sociales como Facebook, LinkedIn) -->
+        <meta property="og:title" content="Jose Baeza | Desarrollo web y soluciones a medida" />
+        <meta property="og:description" content="Desarrollo web fullstack con tecnologías como React, Laravel y AWS. Optimiza tus procesos y escala tu negocio con soluciones a la medida." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://josebaezap.github.io/" />
+
+        <!-- Twitter Card -->
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Jose Baeza | Desarrollo web y soluciones tecnológicas" />
+        <meta name="twitter:description" content="Transformo ideas en productos digitales eficientes con tecnologías modernas como React, Laravel y AWS." />
+
+        <!-- Keywords para SEO -->
+        <meta name="keywords" content="desarrollador web, fullstack, ReactJS, NextJS, Laravel, Node.js, Tailwind, AWS, analista técnico, portafolio, freelance, soluciones tecnológicas" />
+
+        <!-- Author -->
+        <meta name="author" content="Jose Baeza" />
+
          <ViewTransitions />
     </head>
     <body>
@@ -55,12 +76,18 @@ import { ViewTransitions } from "astro:transitions"
 
     document.getElementById("themeToggle")?.addEventListener("click", () => handleToggleClick());
 
+    document.addEventListener('astro:before-swap', () => {
+      if (localStorage?.getItem("theme") === "light") {
+          document.documentElement.classList.remove("dark");
+      } else {
+          document.documentElement.classList.add("dark");
+      }
+    })
     document.addEventListener('astro:after-swap', () => {
       if (localStorage?.getItem("theme") === "light") {
           document.documentElement.classList.remove("dark");
       } else {
           document.documentElement.classList.add("dark");
       }
-      window.scrollTo({ left: 0, top: 0, behavior: 'instant' });
     })
 </script>

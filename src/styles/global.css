@@ -11,13 +11,8 @@ body {
     margin: 0;
     width: 100%;
     height: 100%;
-    @apply bg-gray-100 dark:bg-gray-950 text-black dark:text-white transition-all duration-400;
-    dark: bg-[radial-gradient(
-            ellipse_100%_100%_at_50%_-1%,
-            rgba(120, 119, 198, 0.3),
-            rgba(255, 255, 255, 0)
-        )]
-        bg-no-repeat bg-cover;
+    @apply bg-gray-100 dark:bg-gray-950 text-black dark:text-white transition-all
+      dark:bg-[radial-gradient(ellipse_100%_100%_at_50%_-1%,rgba(120,119,198,0.3),rgba(255,255,255,0))] bg-no-repeat bg-cover;
 }
 
 .content-grid {
