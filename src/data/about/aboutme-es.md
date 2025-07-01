@@ -2,8 +2,8 @@
 cover: "../../assets/me.webp"
 lang: es
 ---
-**Hola!** Soy José Baeza pero sin problema me puedes llamar Pepe. Mi gusto con la programación empieza cuando tenía unos 10 años, al momento de hacker mi primer telefono.
+**Hola!** soy José Baeza, pero sin problema me puedes llamar Pepe. Mi gusto por la programación comenzó cuando tenía unos 10 años, al momento de hackear mi primer teléfono.
 
-Un gran logro para mi a sido incursionar como emprendedor creando soluciones a empresas. Como principal exito ha sido crear una plataforma de gestión para un servicio de paqueteria, ayudandolos en su productividad y organización.
+Un gran logro para mí ha sido incursionar como emprendedor, creando soluciones para empresas. Mi principal éxito ha sido desarrollar una plataforma de gestión para un servicio de paquetería, ayudándolos en su productividad y organización.
 
 Como programador y analista empresarial, me gusta resolver problemas y crear soluciones que ayuden a las empresas a mejorar su eficiencia. Me encanta aprender nuevas tecnologías y siempre estoy buscando formas de mejorar mis habilidades.
